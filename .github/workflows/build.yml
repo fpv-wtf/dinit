@@ -58,7 +58,7 @@ jobs:
 
   build:
     name: Build .ipk packages and setup-payload.tgz
-    runs-on: cimg/android:2022.04.1-ndk
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout Code
@@ -80,9 +80,14 @@ jobs:
           echo "${ARTIFACT_NAME}"
           echo "ARTIFACT_NAME=${ARTIFACT_NAME}" >> $GITHUB_ENV
 
+      - uses: nttld/setup-ndk@v1
+        id: setup-ndk
+        with:
+          ndk-version: r23b
+          add-to-path: false
+
       - name: Install termux-elf-cleaner
         run: |
-          cd ../
           wget https://github.com/termux/termux-elf-cleaner/archive/refs/tags/v1.2.tar.gz
           tar xzf v1.2.tar.gz
           cd termux-elf-cleaner-1.2
@@ -90,6 +95,8 @@ jobs:
           sudo make install
 
       - name: Build .ipkg
+        env:
+          ANDROID_NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
         run: |
           export PATH=$ANDROID_NDK_HOME/toolchains/llvm/prebuilt/linux-x86_64/bin/:$PATH
           make
