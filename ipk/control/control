@@ -1,0 +1,6 @@
+Package: dinit
+Version: 0.6.0
+Maintainer: Joonas Trussmann <joonas@batman.ee>
+Description: Service monitoring and init system (0.14.0)
+Architecture: armv7-3.2
+Depends: wtfos-system

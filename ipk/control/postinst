@@ -1,0 +1,16 @@
+#!/system/bin/sh
+
+# We can not automatically start after installation since we are running the
+# installation via spawnAndWait, which will also wait for all background
+# processes to finish - even when started via nohup.
+#
+# For this reason we will manually start the daemon after the initial
+# installation. After that the startup process will automatically start dinit
+# anyways.
+#
+# This file is just in place as a means of documentation in case anyone is
+# wondering why we don't start after installation.
+
+#/opt/bin/busybox nohup /opt/sbin/dinit -q -u -d /opt/etc/dinit.d &
+
+exit 0

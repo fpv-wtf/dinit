@@ -22,10 +22,16 @@ install: mconfig
 	$(MAKE) -C src install
 	$(MAKE) -C doc/manpages install
 
+ipk: all
+	$(MAKE) -C ipk clean
+	$(MAKE) DESTDIR=../ipk/tmp/data/ -C src install
+	$(MAKE) -C ipk
+
 clean:
 	$(MAKE) -C src clean
 	$(MAKE) -C build clean
 	$(MAKE) -C doc/manpages clean
+	$(MAKE) -C ipk clean
 
 mconfig:
 	@UNAME=`uname`;\

@@ -1,4 +1,3 @@
-.*
 *.o
 /src/**/*.d
 /src/dinit
@@ -14,7 +13,9 @@
 /src/tests/cptests/corpus
 /src/tests/cptests/fuzz
 /src/igr-tests/igr-runner
-/mconfig
+#/mconfig
+/ipk/tmp
+/ipk/*.ipk
 
 /build/includes/*.h
 /build/tools/mconfig-gen

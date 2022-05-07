@@ -1,0 +1,5 @@
+#!/system/bin/sh
+/opt/sbin/dinitctl -u shutdown
+
+# Might not be running anymore, still a positive outcome
+exit 0
