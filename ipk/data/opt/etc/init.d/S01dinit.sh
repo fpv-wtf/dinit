@@ -2,7 +2,7 @@
 
 PATH=/system/bin:/system/sbin:/opt/bin:/opt/sbin:/sbin:/bin:/usr/sbin:/usr/bin
 
-PIDFILE="/opt/var/run/dinit.pid"
+PIDFILE="/tmp/dinit.pid"
 DINIT="/opt/sbin/dinit"
 DINITD="/opt/etc/dinit.d"
 LOGFILE="/blackbox/dinit.log"
