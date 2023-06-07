@@ -1,3 +1,0 @@
-type = process
-command = /system/bin/sleep 600
-restart = true
